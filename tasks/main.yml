@@ -1,0 +1,33 @@
+---
+- name: Install procps-ng package
+  tags: sysctl
+  yum: name=procps-ng
+       state=present
+       update_cache=yes
+  register: sysctl_yum
+
+- block:
+    - name: Configure sysctl.conf
+      sysctl: name={{ item.name }}
+              reload=yes
+              state={{ item.state|default('present') }}
+              sysctl_file=/etc/sysctl.conf
+              value={{ item.value }}
+      with_items: "{{ sysctl_conf }}"
+      when:
+        - item.name is defined
+        - item.value is defined
+    - name: Configure sysctl.d
+      sysctl: name={{ item.1.name }}
+              reload=yes
+              state={{ item.1.state|default('present') }}
+              sysctl_file=/etc/sysctl.d/{{ item.0.order }}-{{ item.0.file }}.conf 
+              value={{ item.1.value }}
+      with_subelements:
+        - "{{ sysctl_d }}"
+        - settings
+      when:
+        - item.1.name is defined
+        - item.1.value is defined
+  tags: sysctl
+  when: sysctl_yum|success
