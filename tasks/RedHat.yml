@@ -1,0 +1,19 @@
+---
+- name: Install procps package
+  tags: sysctl
+  yum:
+    name: procps
+    state: present
+    update_cache: yes
+  register: sysctl_yum
+  when: ansible_distribution_major_version == '6'
+
+- name: Install procps-ng package
+  tags: sysctl
+  yum:
+    name: procps-ng
+    state: present
+    update_cache: yes
+  register: sysctl_yum
+  when: ansible_distribution_major_version == '7'
+
