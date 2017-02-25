@@ -33,4 +33,4 @@
         - item.1.value is defined
   tags: sysctl
   when: sysctl_yum|success
-
+...

@@ -16,4 +16,4 @@
     update_cache: yes
   register: sysctl_yum
   when: ansible_distribution_major_version == '7'
-
+...
