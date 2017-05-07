@@ -1,9 +1,12 @@
 ---
-- include: "{{ ansible_os_family|lower }}.yml"
+- name: Executing OS specific tasks (Debian)
+  include: "{{ ansible_os_family|lower }}.yml"
   when: ansible_os_family == 'Debian'
 
-- include: "{{ ansible_os_family|lower }}.yml"
+- name: Executing OS specific tasks (RedHat)
+  include: "{{ ansible_os_family|lower }}.yml"
   when: ansible_os_family == 'RedHat'
 
-- include: configure.yml
+- name: Executing configuration tasks
+  include: configure.yml
 ...

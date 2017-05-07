@@ -1,5 +1,5 @@
 ---
-- name: Install procps package
+- name: Ensure that the procps package is installed
   tags: sysctl
   yum:
     name: procps
@@ -8,7 +8,7 @@
   register: sysctl_yum
   when: ansible_distribution_major_version == '6'
 
-- name: Install procps-ng package
+- name: Ensure that the procps-ng package is installed
   tags: sysctl
   yum:
     name: procps-ng

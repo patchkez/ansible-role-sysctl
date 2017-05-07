@@ -1,6 +1,6 @@
 ---
 - block:
-    - name: Configure sysctl.conf
+    - name: Applying sysctl.conf configurations
       sysctl:
         name: "{{ item.name }}"
         reload: yes
@@ -18,7 +18,7 @@
         path: /etc/sysctl.d
         state: directory
   
-    - name: Configure sysctl.d
+    - name: Applying sysctl.d configurations
       sysctl:
         name: "{{ item.1.name }}"
         reload: yes
