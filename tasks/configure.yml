@@ -17,13 +17,13 @@
         mode: 0755
         path: /etc/sysctl.d
         state: directory
-  
+
     - name: Applying sysctl.d configurations
       sysctl:
         name: "{{ item.1.name }}"
         reload: yes
         state: "{{ item.1.state|default('present') }}"
-        sysctl_file: /etc/sysctl.d/{{ item.0.order }}-{{ item.0.file }}.conf 
+        sysctl_file: "/etc/sysctl.d/{{ item.0.order }}-{{ item.0.file }}.conf"
         value: "{{ item.1.value }}"
       with_subelements:
         - "{{ sysctl_d }}"
