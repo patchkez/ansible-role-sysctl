@@ -32,5 +32,6 @@
         - item.1.name is defined
         - item.1.value is defined
   tags: sysctl
+  become: true
   when: sysctl_yum|success
 ...

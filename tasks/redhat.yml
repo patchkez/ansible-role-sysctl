@@ -1,6 +1,7 @@
 ---
 - name: Ensure that the procps package is installed
   tags: sysctl
+  become: true
   yum:
     name: procps
     state: present
@@ -10,6 +11,7 @@
 
 - name: Ensure that the procps-ng package is installed
   tags: sysctl
+  become: true
   yum:
     name: procps-ng
     state: present

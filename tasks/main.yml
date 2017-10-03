@@ -1,12 +1,15 @@
 ---
 - name: Executing OS specific tasks (Debian)
+  tags: sysctl
   include_tasks: "{{ ansible_os_family|lower }}.yml"
   when: ansible_os_family == 'Debian'
 
 - name: Executing OS specific tasks (RedHat)
+  tags: sysctl
   include_tasks: "{{ ansible_os_family|lower }}.yml"
   when: ansible_os_family == 'RedHat'
 
 - name: Executing configuration tasks
+  tags: sysctl
   import_tasks: configure.yml
 ...
