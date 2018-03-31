@@ -34,6 +34,7 @@ script:
 - 'sudo docker rm -f "$(cat ${container_id})"'
 
 
+
 # script:
 #   - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
 # notifications:
