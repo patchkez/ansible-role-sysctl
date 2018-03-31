@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/linuxhq/ansible-role-sysctl.svg?branch=master)](https://travis-ci.org/linuxhq/ansible-role-sysctl)
 
-RHEL/CentOS - Configure kernel parameters at runtime
+RHEL/CentOS and Ubuntu/Debian - Configure kernel parameters at runtime
 
 ## Requirements
 
