@@ -33,5 +33,5 @@
         - item.1.value is defined
   tags: sysctl
   become: true
-  when: sysctl_yum|success
+  # when: sysctl_yum|success
 ...
