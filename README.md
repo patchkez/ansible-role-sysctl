@@ -1,6 +1,6 @@
 # ansible-role-sysctl
 
-[![Build Status](https://travis-ci.org/patchkez/ansible-role-sysctl.svg?branch=ubuntu_work)](https://travis-ci.org/patchkez/ansible-role-sysctl)
+[![Build Status](https://travis-ci.org/patchkez/ansible-role-sysctl.svg?branch=master)](https://travis-ci.org/patchkez/ansible-role-sysctl)
 
 
 RHEL/CentOS and Ubuntu/Debian  -  Configure kernel parameters at runtime
