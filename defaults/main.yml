@@ -1,4 +1,96 @@
 ---
-sysctl_conf: []
-sysctl_d: []
+# sysctl_conf: []
+# sysctl_d: []
+
+sysctl_conf:
+  - name: net.core.default_qdisc
+    state: present
+    value: 'fq'
+  # - name: net.ipv4.tcp_congestion_control
+  #   state: present
+  #   value: 'bbr'
+  - name: net.core.rmem_default
+    state: present
+    value: '1048576'
+  - name: net.core.wmem_default
+    state: present
+    value: '1048576'
+  - name: net.core.rmem_max
+    state: present
+    value: '16777216'
+  - name: net.core.wmem_max
+    state: present
+    value: '16777216'
+  - name: net.ipv4.tcp_rmem
+    state: present
+    value: '4096 87380 16777216'
+  - name: net.ipv4.tcp_wmem
+    state: present
+    value: '4096 87380 16777216'
+  - name: net.ipv4.udp_rmem_min
+    state: present
+    value: '16384'
+  - name: net.ipv4.udp_wmem_min
+    state: present
+    value: '16384'
+  - name: net.core.netdev_max_backlog
+    state: present
+    value: '262144'
+  - name: net.ipv4.tcp_max_orphans
+    state: present
+    value: '262144'
+  - name: net.ipv4.tcp_max_syn_backlog
+    state: present
+    value: '262144'
+  - name: net.ipv4.tcp_no_metrics_save
+    state: present
+    value: '1'
+  - name: net.ipv4.tcp_tw_reuse
+    state: present
+    value: '1'
+  - name: net.ipv4.tcp_max_tw_buckets
+    state: present
+    value: '2000000'
+  - name: net.ipv4.tcp_fin_timeout
+    state: present
+    value: '10'
+  - name: net.ipv4.tcp_keepalive_time
+    state: present
+    value: '60'
+  - name: net.ipv4.tcp_keepalive_intvl
+    state: present
+    value: '10'
+  - name: net.ipv4.tcp_keepalive_probes
+    state: present
+    value: '3'
+  - name: net.ipv4.tcp_synack_retries
+    state: present
+    value: '2'
+  - name: net.ipv4.tcp_syn_retries
+    state: present
+    value: '2'
+  - name: net.ipv4.ip_local_port_range
+    state: present
+    value: '16001 65530'
+  - name: net.core.somaxconn
+    state: present
+    value: '20480'
+  - name: net.ipv4.tcp_low_latency
+    state: present
+    value: '1'
+  - name: net.ipv4.tcp_slow_start_after_idle
+    state: present
+    value: '0'
+  - name: net.ipv4.tcp_mtu_probing
+    state: present
+    value: '1'
+  - name: net.ipv4.tcp_fastopen
+    state: present
+    value: '3'
+
+sysctl_d:
+  - file: ansible
+    order: 99
+    settings: 
+      - "{{ sysctl_conf }}"
 ...
